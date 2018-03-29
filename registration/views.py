@@ -1,0 +1,36 @@
+from django.shortcuts import render, redirect
+from django.views.generic import TemplateView
+from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
+
+
+class LandingPage(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'landing.html', context=None)
+
+class HomePage(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'home.html', context=None)
+
+class SignUpPage(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'signup.html', context=None)
+
+    def post(self, request, **kwargs):
+        email = request.POST.get("user[email]")
+        pass1 = request.POST.get("user[password]")
+        pass2 = request.POST.get("user[password2]")
+
+        if User.objects.filter(username=email).exists():
+            print("User with this email exists!")
+            return render(request, 'signup.html', context=None)
+
+        if pass1 != pass2:
+            print("Password mismatch!")
+            return render(request, 'signup.html', context=None)
+
+        else:
+            # Add user to database
+            user = User.objects.create_user(email, email, pass1)
+            user.save()
+            return redirect('HomePage')
