@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
+from django.contrib import messages
 
 
 class LandingPage(TemplateView):
@@ -22,11 +23,11 @@ class SignUpPage(TemplateView):
         pass2 = request.POST.get("user[password2]")
 
         if User.objects.filter(username=email).exists():
-            print("User with this email exists!")
+            messages.error(request, "Email already registered!")
             return render(request, 'signup.html', context=None)
 
         if pass1 != pass2:
-            print("Password mismatch!")
+            messages.error(request, "Password mismatch!")
             return render(request, 'signup.html', context=None)
 
         else:

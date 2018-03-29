@@ -45,9 +45,9 @@
 						</li>
 						<li><a class= "btn" id= "howbtn"><span class="glyphicon glyphicon-question-sign"></span> How it Works</a>
 						</li>
-						<li><a href="signup.html" class= "btn" id= "signupbtn"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+						<li><a href="signup/" class= "btn" id= "signupbtn"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
 						</li>
-						<li><a href= "home.html" class="btn" id="loginBtn">
+						<li><a href= "home/" class="btn" id="loginBtn">
 							<span class="glyphicon glyphicon-log-in"></span> Login</a>
 						</li>
                 	</ul>
@@ -72,6 +72,13 @@
 
 
 </div>
+    <!--{% if messages %}-->
+<!--<ul class="messages">-->
+    <!--{% for message in messages %}-->
+    <!--<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>-->
+    <!--{% endfor %}-->
+<!--</ul>-->
+{% endif %}
 
 	<script src='{% static "bower_components/jquery/dist/jquery.min.js" %}'></script>
 <script src='{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}'></script>
