@@ -62,16 +62,17 @@
                 <h4 class="modal-title">Login </h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-			<form class="form-inline" method="post" action="/signup/">
+			<form class="form-inline" method="post" action="/home/">
+                {% csrf_token %}
             <div class="modal-body">
                 
                     <div class="form-group">
                         <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                        <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
+                        <input name = "email" type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="exampleInputPassword3">Password</label>
-                        <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
+                        <input name = "password" type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
@@ -187,6 +188,13 @@
             </div>
        </div>
 </div>
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
     <script src='{% static "commands.js" %}'></script>
 	<script src='{% static "bower_components/jquery/dist/jquery.min.js" %}'></script>

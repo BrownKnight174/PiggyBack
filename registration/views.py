@@ -13,6 +13,17 @@ class HomePage(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'home.html', context=None)
 
+    def post(self, request, **kwargs):
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        user = authenticate(username = email, password =  password)
+        if user is not None:
+            # Session cookies
+            return render(request, 'home.html', context=None)
+        else:
+            messages.error(request, "Login unsuccessful!")
+            return render(request, 'home.html', context=None)
+
 class SignUpPage(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'signup.html', context=None)

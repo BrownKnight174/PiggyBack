@@ -72,13 +72,13 @@
 
 
 </div>
-    <!--{% if messages %}-->
-<!--<ul class="messages">-->
-    <!--{% for message in messages %}-->
-    <!--<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>-->
-    <!--{% endfor %}-->
-<!--</ul>-->
-<!--{% endif %}-->
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 	<script src='{% static "bower_components/jquery/dist/jquery.min.js" %}'></script>
 <script src='{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}'>
