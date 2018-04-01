@@ -61,21 +61,21 @@ body{
     }
 
 .img{
-				padding:0px;	
+	padding:0px;
 			}
-			.container-fluid {
+.container-fluid {
 				padding:0;
 			}
-			.form-group {
+.form-group {
 				margin-bottom: 0px;
 			}
-			html,body{
+html,body{
 				overflow-x:hidden;
 			}
-			.navbar{
+.navbar{
 				border-radius:0px;
 			}
-			.carousel-caption {
+.carousel-caption {
 			  margin-bottom: 35%;
 			  color:black;
 			  text-decoration:bold;
