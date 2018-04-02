@@ -9,29 +9,45 @@ class LandingPage(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'landing.html', context=None)
 
-class HomePage(TemplateView):
-    def get(self, request, **kwargs):
-        return render(request, 'home.html', context=None)
-
     def post(self, request, **kwargs):
         email = request.POST.get("email")
         password = request.POST.get("password")
-        user = authenticate(username = email, password =  password)
+        user = authenticate(username=email, password=password)
         if user is not None:
-            # Session cookies
-            return render(request, 'home.html', context=None)
+            login(request, user)
+            return redirect('HomePage')
         else:
             messages.error(request, "Login unsuccessful!")
-            return render(request, 'home.html', context=None)
+            return render(request, 'landing.html', context=None)
+
+
+class HomePage(TemplateView):
+    def get(self, request, **kwargs):
+        if not request.user.is_authenticated:
+            messages.error(request, "Please sign up or login!")
+            return render(request, 'signup.html', context=None)
+        else:
+            return render(request, 'home.html', context={"user": request.user})
+
 
 class SignUpPage(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'signup.html', context=None)
 
     def post(self, request, **kwargs):
+        fname = request.POST.get("firstname")
+        lname = request.POST.get("lastname")
         email = request.POST.get("user[email]")
         pass1 = request.POST.get("user[password]")
         pass2 = request.POST.get("user[password2]")
+
+        if not fname.isalpha():
+            messages.error(request, "First name can only contain alphabets!")
+            return render(request, 'signup.html', context=None)
+
+        if not lname.isalpha():
+            messages.error(request, "Last name can only contain alphabets!")
+            return render(request, 'signup.html', context=None)
 
         if User.objects.filter(username=email).exists():
             messages.error(request, "Email already registered!")
@@ -44,5 +60,8 @@ class SignUpPage(TemplateView):
         else:
             # Add user to database
             user = User.objects.create_user(email, email, pass1)
+            user.first_name = fname
+            user.last_name = lname
             user.save()
+            login(request, user)
             return redirect('HomePage')
