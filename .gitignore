@@ -1,2 +1,6 @@
 templates, references etc
+<<<<<<< HEAD
 .idea/workspace.xml
+=======
+./idea/workspace.xml
+>>>>>>> e9784c39d721fa8dcc7b328985b556ff80d8b5d3
