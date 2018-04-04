@@ -8,6 +8,16 @@
 {% endblock %}
 
 {% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
 <div class="container">
     <div class="col-md-5">
         <div id="logbox">
@@ -21,7 +31,7 @@
                        class="input pass"/>
                 <input name="user[password2]" type="password" placeholder="Confirm password" required="required"
                        class="input pass"/>
-                <input type="submit" value="Sign me up!" class="inputButtonsign"/>
+                <input type="submit" name="action" value="Sign me up!" class="inputButtonsign"/>
 
             </form>
         </div>
@@ -33,14 +43,14 @@
 
     <div class="col-md-5">
         <div id="signbox">
-            <form id="signin" method="post" action="/home/">
+            <form id="signin" method="post" action="/signup/">
                 {% csrf_token %}
                 <h1 id="signh1"><strong>Sign in!</strong></h1>
                 <input name="email" type="email" class="input pass "
                                    id="emailInput" placeholder="Enter email" required="required">
                 <input name="password" type="password" class="input pass"
                                    id="passwordInput" placeholder="Password" required="required">
-                <input type="submit" value="Sign in!" class="inputButtonsign"/>
+                <input type="submit" name="action" value="Sign in!" class="inputButtonsign"/>
 
             </form>
         </div>
@@ -49,17 +59,5 @@
 
 <div style="padding=20px;"></div>
 </div>
-
-
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-danger alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-    {{ message }}
-</div>
-{% endfor %}
-{% endif %}
 {% endblock %}
 
