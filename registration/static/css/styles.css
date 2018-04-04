@@ -42,7 +42,7 @@ body{
 #logbox {
 
         padding: 50px;
-		margin-top: 100px;
+		margin-top: 90px;
         margin-left: auto;
 		margin-right: auto;
         width: 340px;
@@ -157,4 +157,10 @@ h1, input {
     padding-top: 25%;
     vertical-align: middle;
     text-align: center;
+    }
+
+.alert {
+    margin: 20px;
+    box-shadow: 3px 3px 5px #535353;
+    border-radius: 6px 6px 6px 6px;
     }
