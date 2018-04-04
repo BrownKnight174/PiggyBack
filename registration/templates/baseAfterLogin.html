@@ -47,7 +47,10 @@
                 </li>
                 <li><a class="btn" id="howbtn"><span class="glyphicon glyphicon-question-sign"></span> How it Works</a>
                 </li>
-                <li><a class="btn" id="signupbtn"><span class="glyphicon glyphicon-user"></span> {{user.first_name}}</a>
+                <li class="dropdown"><a class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="signupbtn"><span class="glyphicon glyphicon-user"></span> {{user.first_name}} <span class="caret" aria-hidden="false"></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Signout</a></li>
+                    </ul>
                 </li>
 
             </ul>

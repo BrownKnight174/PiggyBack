@@ -49,6 +49,15 @@ body{
         background-color: #fff;
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
     }
+#signbox{
+    padding: 50px;
+	margin-top: 100px;
+    margin-left: auto;
+	margin-right: auto;
+    width: 340px;
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    }
 
 .input {
         width: 75%;
@@ -73,6 +82,7 @@ html,body{
 				overflow-x:hidden;
 			}
 .navbar{
+                background-color: black;
 				border-radius:0px;
 			}
 .carousel-caption {
@@ -134,3 +144,17 @@ h1, input {
 .navbar-brand{
 	font-size: xx-large;
 }
+.dropdown-menu{
+    background-color: black;
+    }
+
+.dropdown-menu > li > a{
+    color: white;
+    background-color: black;
+}
+
+#or{
+    padding-top: 25%;
+    vertical-align: middle;
+    text-align: center;
+    }
