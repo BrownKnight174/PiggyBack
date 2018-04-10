@@ -55,7 +55,9 @@ ROOT_URLCONF = 'PiggyBack.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR + '/customer/templates/',
+                 BASE_DIR + '/traveller/templates/',
+                 BASE_DIR + '/registration/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
