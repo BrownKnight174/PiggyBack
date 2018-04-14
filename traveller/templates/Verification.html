@@ -1,3 +1,17 @@
+{% extends "baseAfterLogin.html" %}
+{% load staticfiles %}
+
+
+{% block head %}
+<title>
+	PiggyBack
+</title>
+{% endblock %}
+{% endblock %}
+
+{% block body %}
+{% endfor %}
+{% endif %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -117,11 +131,9 @@ width: 150px;
         <div class="out-put">
 
 
-<p>
+<p id= '4'>
  <h3 style="padding-top:30px; ">Please enter your Aadhar card no.-
-        <h4 style="font-size: 20px;">  <input type = "text"
-                 id = "myText"
-                 value = "16-Digit Code" />
+        <h4 style="font-size: 20px;">  
 
 </p>
 </h4>
@@ -131,10 +143,8 @@ width: 150px;
 
 <h3 style="padding-top:30px;">Name as on Aadhar card-
      
-<p>   
-<h4 style="font-size: 20px;">  <input type = "text"
-                 id = "myText"
-                 value = "First-Name Last-Name" />
+<p id='3'>   
+<h4 style="font-size: 20px;">  
 </p>
 </h4>
 </h3>
@@ -142,19 +152,14 @@ width: 150px;
 
 <h3 style="padding-top:30px;">Address-
      
-<p>   
-<h4 style="font-size: 20px;">  <input type = "text"
-                 id = "myText"
-                 value = "Address" />
-</p>
+<p id='2'>   
+<h4 style="font-size: 20px;">  
 </h4>
 </h3>
 <h3 style="padding-top:30px;">Contact Number-
-<p>
+<p id='1'>
 <h4 style="font-size: 20px;">
-<input type = "text"
-                 id = "myText"
-                 value = "Phone number" />
+
 </p>
 </h4>
 <button>Submit</button>
@@ -173,3 +178,4 @@ width: 150px;
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
+{% endblock %}
