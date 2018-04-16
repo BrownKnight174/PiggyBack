@@ -47,8 +47,11 @@
                 <h3 align=left><strong>Customer</strong></h3>
             </div>
             <div  class="col-xs-12 col-sm-12">
-                    <input style="width: 70%" type="text" id="sendURL" placeholder="Enter the URL of the product">
-					<button type="button" class="btn btn-primary" onclick="sendData()">Primary</button>
+                <form id="urldata" method="post" action="/customer/">
+                    {% csrf_token %}
+                    <input style="width: 70%" name="sendURL" type="text" id="sendURL" placeholder="Enter the URL of the product" required="required" class="input pass">
+					<input type="submit" name="action" value="Continue" class="inputButtonurl"/>
+                </form>
             </div>
 		<div class="col-xs-12 col-sm-3">
 

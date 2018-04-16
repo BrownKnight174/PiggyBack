@@ -3,6 +3,8 @@ templates, references etc
 ./idea
 .idea
 db.sqlite3
-PiggyBack/__pycache__/settings.cpython-36.pyc
-registration/__pycache__/views.cpython-36.pyc
+PiggyBack/__pycache__
+registration/__pycache__
+traveller/__pycache__
+customer/__pycache__
 
