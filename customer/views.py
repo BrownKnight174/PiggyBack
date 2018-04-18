@@ -3,6 +3,8 @@ from django.views.generic import TemplateView
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from django.conf import settings
+import platform
+
 
 class ProductPage(TemplateView):
     def get(self, request, **kwargs):
@@ -29,7 +31,12 @@ def GetProductData(url):
     chrome_options = Options()
     chrome_options.add_argument("--headless")
 
-    browser = webdriver.Chrome(settings.BASE_DIR + "/chromedriver", chrome_options=chrome_options)
+    if platform.system() == "Darwin":
+        browser = webdriver.Chrome(settings.BASE_DIR + "/chromedriver", chrome_options=chrome_options)
+    elif platform.system() == "Windows":
+        browser = webdriver.Chrome(settings.BASE_DIR + "/chromedriver.exe", chrome_options=chrome_options)
+    else:
+        browser = webdriver.Chrome(settings.BASE_DIR + "/chromedriver_linux", chrome_options=chrome_options)
 
     browser.get(url)
 
@@ -44,6 +51,6 @@ def GetProductData(url):
 
     browser.quit()
 
-    productData = {'productTitle': productTitle, 'productCost': productCost, 'availability': availability }
+    productData = {'productTitle': productTitle, 'productCost': productCost, 'availability': availability}
 
     return productData
