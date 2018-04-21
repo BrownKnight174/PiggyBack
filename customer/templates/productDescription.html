@@ -10,11 +10,14 @@
 
 <div style="margin: 60px;"></div>
   	<div class="container">
-  		<h2> Product title: </h2> <h4>{{ productTitle }}</h4>
+  		<h2> Product Title: </h2> <h4>{{ productTitle }}</h4>
 		<h2> Product Cost: </h2> <h4>{{ productCost }}</h4>
 		<h2> Product Availability: </h2> <h4>{{availability}}</h4>
-<!--		<h2> Product Description: </h2> <h4> {{description}}</h4>-->
-  	
+		<h2> Product Description: </h2>
+		{% for point in description %}
+		 	<h4> {{ point }} </h4>
+		{% endfor %}
+
 
 <div class="row row-content">
 	<h4>Was this the product you wanted?</h4>

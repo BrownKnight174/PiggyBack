@@ -7,55 +7,58 @@ import platform
 
 
 class ProductPage(TemplateView):
-	def get(self, request, **kwargs):
-		return render(request, 'product.html', context=None)
 
-	def post(self, request, **kwargs):
-		if request.POST['action'] == "Continue":
-			url = request.POST.get("sendURL")
-			productData = GetProductData(url)
-			if productData is None:
-				redirect('HomePage')
-			else:
-				return render(request, 'productDescription.html', context=productData)
-		else:
-			return redirect('LandingPage')
+    def get(self, request, **kwargs):
+        return render(request, 'productDescription.html', context=None)
+
+    def post(self, request, **kwargs):
+        if request.POST['action'] == "Continue":
+
+            url = request.POST.get("sendURL")
+            productData = GetProductData(url)
+
+            if productData is None:
+                redirect('HomePage')
+            else:
+                return render(request, 'productDescription.html', context=productData)
+        else:
+            return redirect('LandingPage')
 
 
 class PaymentsPage(TemplateView):
-	def get(self, request, **kwargs):
-		return render(request, 'billDetails.html', context=None)
+    def get(self, request, **kwargs):
+        return render(request, 'billDetails.html', context=None)
 
 
 def GetProductData(url):
-	chrome_options = Options()
-	chrome_options.add_argument("--headless")
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
 
-	if platform.system() == "Darwin":
-		browser = webdriver.Chrome(settings.BASE_DIR + "/chromedriver", chrome_options=chrome_options)
-	elif platform.system() == "Windows":
-		browser = webdriver.Chrome(settings.BASE_DIR + "/chromedriver.exe", chrome_options=chrome_options)
-	else:
-		browser = webdriver.Chrome(settings.BASE_DIR + "/chromedriver_linux", chrome_options=chrome_options)
+    if platform.system() == "Darwin":
+        browser = webdriver.Chrome(settings.BASE_DIR + "/chromedriver", chrome_options=chrome_options)
+    elif platform.system() == "Windows":
+        browser = webdriver.Chrome(settings.BASE_DIR + "/chromedriver.exe", chrome_options=chrome_options)
+    else:
+        browser = webdriver.Chrome(settings.BASE_DIR + "/chromedriver_linux", chrome_options=chrome_options)
 
-	browser.get(url)
+    browser.get(url)
 
-	productTitle = browser.find_element_by_id('productTitle').text
-	print(productTitle)
+    productTitle = browser.find_element_by_id('productTitle').text
+    print(productTitle)
 
-	productCost = browser.find_element_by_id('priceblock_ourprice').text
-	print(productCost.strip())
+    productCost = browser.find_element_by_id('priceblock_ourprice').text
+    print(productCost.strip())
 
-	availability = browser.find_element_by_id('availability').text
-	print(availability.strip())
-	
-	description= browser.find_elements_by_class_name('showHiddenFeatureBullets')
-	for points in description:
-		points= points.text
-		print(points)
+    availability = browser.find_element_by_id('availability').text
+    print(availability.strip())
 
-	browser.quit()
+    descriptionElements = browser.find_elements_by_xpath("//*[@id='feature-bullets']/ul/li/span[@class='a-list-item']")
+    description = []
+    for element in descriptionElements:
+        description.append(element.text)
 
-	productData = {'productTitle': productTitle, 'productCost': productCost, 'availability': availability, 'description': description}
+    browser.quit()
 
-	return productData
+    productData = {'productTitle': productTitle, 'productCost': productCost, 'availability': availability, 'description': description}
+
+    return productData
