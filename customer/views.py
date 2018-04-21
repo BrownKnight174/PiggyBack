@@ -17,14 +17,14 @@ class ProductPage(TemplateView):
             if productData is None:
                 redirect('HomePage')
             else:
-                return render(request, 'product.html', context=productData)
+                return render(request, 'productDescription.html', context=productData)
         else:
             return redirect('LandingPage')
 
 
 class PaymentsPage(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'Payment_Details.html', context=None)
+        return render(request, 'billDetails.html', context=None)
 
 
 def GetProductData(url):
