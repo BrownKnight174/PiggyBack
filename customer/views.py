@@ -52,7 +52,8 @@ def GetProductData(url):
     availability = browser.find_element_by_id('availability').text
     print(availability.strip())
 
-    descriptionElements = browser.find_elements_by_xpath("//*[@id='feature-bullets']/ul/li/span[@class='a-list-item']")
+#    descriptionElements = browser.find_elements_by_xpath("//*[@id='feature-bullets']/ul/li/span[@class='a-list-item']")
+    descriptionElements = browser.find_elements_by_class_name("showHiddenFeatureBullets")
     description = []
     for element in descriptionElements:
         description.append(element.text)
