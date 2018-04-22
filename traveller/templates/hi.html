@@ -1,0 +1,128 @@
+
+{% extends "baseAfterLogin.html" %}
+{% load staticfiles %}
+
+{% block head %}
+<title>Traveller's Page</title>
+<link href="../static/css/traveller.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+	  
+      <div class="container" >
+          <h3><center>Tell us your travel plans and we will find you the best deals</center></h3>
+      </div>
+	  <br>
+      <div class="container">
+		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		</div>
+		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		</div>
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+			<form>
+				<div class="form-group">
+					<label>Flight Name</label>
+					<input type="text" placeholder="Enter flight name" class="form-control">
+				</div>
+				<br>
+				<div class="form-group">
+					<label>Flight PNR</label>
+					<input type="text" placeholder="Enter flight PNR" class="form-control">
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<div class="form-group">
+							<label>From</label>
+							<input type="date" placeholder="Enter start date" class="form-control">
+							
+						</div>
+					</div>
+					
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<div class="form-group">
+							<label>To</label>
+							<input type="date" placeholder="Enter end date" class="form-control">
+						</div>
+					</div>
+				</div>
+			</form>  
+		</div>
+		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		</div>
+		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		</div>
+      </div>
+	  
+	 <div class="row row-content">
+           <div class="col-xs-12">
+			   <div id="mycarousel" class="carousel slide" data-ride="carousel">
+				   <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#mycarousel" data-slide-to="1"></li>
+                    <li data-target="#mycarousel" data-slide-to="2"></li>
+                </ol>
+
+				   <div class="carousel-inner" role="listbox">
+                    <div class="row item active">
+                        <img class="img-responsive"
+                         src=''alt="Uthappizza">
+                        <div class="carousel-caption">
+                        <h2>iPhone 6 <span class="label label-danger">Hot</span> <span class="badge">$4.99</span></h2>
+                        <p>Hello</p>
+						
+                        <p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a></p>
+                        </div>
+                    </div>
+                    <div class="row item">
+                        <img src='' class="img-responsive">
+                        <div class="carousel-caption">
+                        <h2>Samsung SmartWatch <span class="label label-danger label-xs">New</span></h2>
+                         <p>Hi</p>
+						
+                		<p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a></p>
+                        </div>
+                    </div>
+                    <div class="row item">
+                        <img class="img-responsive"
+                         src='' alt="Alberto Somayya">
+                        <div class="carousel-caption">
+						<h2>DSLR Camera</h2>
+                         <p>Bye
+                         </p>
+							
+						  <p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a>
+                        </div>
+                    </div>
+                </div>
+			<!-- Controls -->
+                <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+
+            </div>
+
+            </div>
+       </div>
+</div>
+	  
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		</div>
+		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		</div>
+      </div>
+	  
+	  
+{% endblock %}
+    
+
+
+
+
