@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-xs-12 col-md-3 align-self-center" >
 					<p style="padding:40px;"></p>
-					PiggyBack Logo
+                <a href="/home/"><img src='{% static "img/newlogo.png" %}' alt="logo"/></a>
                 </div>
 				<div class="col-xs-12 col-md-4 align-self-center">
 					<p style="padding:40px;"></p>
@@ -49,8 +49,8 @@
             <div  class="col-xs-12 col-sm-12">
                 <form id="urldata" method="post" action="/customer/">
                     {% csrf_token %}
-                    <input style="width: 70%" name="sendURL" type="text" id="sendURL" placeholder="Enter the URL of the product" required="required" class="input pass">
-					<input type="submit" name="action" value="Continue" class="inputButtonurl"/>
+                    <input id="urlInput" name="sendURL" type="text" id="sendURL" placeholder="Enter the URL of the product" required="required" class="input pass">  
+					<input type="submit" name="action" value="Continue" class="inputButtonurl btn btn-primary btn-md"/>
                 </form>
             </div>
 		<div class="col-xs-12 col-sm-3">

@@ -166,3 +166,19 @@ h1, input {
     box-shadow: 3px 3px 5px #535353;
     border-radius: 6px 6px 6px 6px;
     }
+
+#alertMsg{
+	width: 90%;
+	position: absolute;
+	z-index: 2;
+}
+
+#urlInput{
+	width: 70%; 
+	float: left;"
+}
+
+.inputButtonurl{
+	margin-left: 30px;
+	margin-top: 9px;
+}

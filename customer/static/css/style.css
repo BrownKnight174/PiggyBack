@@ -869,3 +869,82 @@ transition:0.5s all;
 		margin: 20px auto 0 auto;
 	}
 }
+
+.out-put output {
+ position: absolute;
+font-size:25px;
+    top:9%;
+left: 120%;
+width: 150px;
+color: black; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+}
+
+.btn-group button {
+ position: absolute;
+    top: 90%;
+left: 120%;
+width: 250px;
+  text-align: center;
+    background-color: #008CBA; /* Black background */
+    border: 1px solid blue; /* Black border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #3e8e41;
+}
+
+      .container-fluid {
+          padding:0;
+        }
+        .form-group {
+          margin-bottom: 0px;
+        }
+      html,body{
+        overflow-x:hidden;
+      }
+      .navbar{
+        border-radius:0px;
+      }
+      .heading{
+        padding-top:20px;
+      }
+      .formin{
+        margin-left:80px;
+      }
+      .formin1{
+        margin-left:20px;
+      }
+      @media screen and (max-width: 600px) {
+        .heading{
+          padding-top:10px;
+        }
+        .formin{
+          margin-left:20px;
+        }
+        .form{
+          padding-left:50px;
+        }
+        .image{
+          display:none;
+        }
+      
+      }
