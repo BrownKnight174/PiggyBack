@@ -46,8 +46,13 @@ def GetProductData(url):
     productTitle = browser.find_element_by_id('productTitle').text
     print(productTitle)
 
-    productCost = browser.find_element_by_id('priceblock_ourprice').text
-    print(productCost.strip())
+    try:
+        productCost = browser.find_element_by_id('priceblock_ourprice').text
+        print(productCost.strip())
+    except:
+        productCost = browser.find_element_by_id('priceblock_dealprice').text
+        print(productCost.strip())
+
 
     availability = browser.find_element_by_id('availability').text
     print(availability.strip())
