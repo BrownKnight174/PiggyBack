@@ -12,7 +12,6 @@ class LandingPage(TemplateView):
         else:
             return render(request, 'landingAfterLogin.html', context={"user": request.user})
 
-
     def post(self, request, **kwargs):
         email = request.POST.get("email")
         password = request.POST.get("password")
@@ -23,6 +22,11 @@ class LandingPage(TemplateView):
         else:
             messages.error(request, "Login unsuccessful!")
             return render(request, 'landing.html', context=None)
+
+
+class InvitePage(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'invite.html', context=None)
 
 
 class HomePage(TemplateView):
