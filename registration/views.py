@@ -12,7 +12,6 @@ class LandingPage(TemplateView):
         else:
             return render(request, 'landingAfterLogin.html', context={"user": request.user})
 
-
     def post(self, request, **kwargs):
         email = request.POST.get("email")
         password = request.POST.get("password")

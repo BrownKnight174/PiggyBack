@@ -7,7 +7,6 @@ import platform
 
 
 class ProductPage(TemplateView):
-
     def get(self, request, **kwargs):
         return render(request, 'productDescription.html', context=None)
 
@@ -28,6 +27,11 @@ class ProductPage(TemplateView):
 class PaymentsPage(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'billDetails.html', context=None)
+
+
+class PaymentPortalPage(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'paymentPortal.html', context=None)
 
 
 def GetProductData(url):

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -47,10 +48,9 @@
     <form align = "Center" action="/checkout" method="POST" style= "margin-top: 50px">
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="pk_test_QVUejonJGWFeiRM6TBETPEUT" # Make sure to wrap the variable name with double {}
-        data-amount="2000"
+        data-amount={{cost}}
         data-name="Pay for your Product"
         data-description="Your Product"
-        data-image="Link to your logo"
         data-currency="usd">
     </script>
 </form>
