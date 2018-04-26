@@ -25,6 +25,11 @@ class LandingPage(TemplateView):
             return render(request, 'landing.html', context=None)
 
 
+class InvitePage(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'invite.html', context=None)
+
+
 class HomePage(TemplateView):
     def get(self, request, **kwargs):
         if not request.user.is_authenticated:
