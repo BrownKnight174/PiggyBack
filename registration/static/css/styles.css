@@ -86,6 +86,7 @@ html,body{
 				border-radius:0px;
 			}
 .carousel-caption {
+				text-align: center;
 			  margin-bottom: 35%;
 			  color:black;
 			  text-decoration:bold;
