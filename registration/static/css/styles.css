@@ -1,0 +1,184 @@
+.row-content {
+  margin: 0px auto;
+  padding: 10px 0px;
+  min-height: 200px;
+}
+.jumbotron {
+  margin: 0px auto;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  background: silver;
+  color: black;
+}
+.carousel {
+  background: silver;
+  color: black;
+}
+.carousel .item {
+  height: 300px;
+}
+.carousel .item img {
+  left: 0;
+  min-height: 300px;
+  position: absolute;
+  top: 0;
+}
+
+.carousel-inner{
+	background: white;
+	color: black;
+}
+.carousel-caption{
+	color: black;
+	
+}
+
+.carousel{
+	border: 1px solid black;
+}
+body{
+	background: silver
+}
+#logbox {
+
+        padding: 40px;
+		margin-top: 70px;
+        margin-left: auto;
+		margin-right: auto;
+        width: 340px;
+        background-color: #fff;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    }
+#signbox{
+    padding: 40px;
+	margin-top: 70px;
+    margin-left: auto;
+	margin-right: auto;
+    width: 340px;
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    }
+
+.input {
+        width: 75%;
+        height: 50px;
+        display: block;
+        margin: 0 auto 15px;
+        padding: 0 15px;
+        border: none;
+        border-bottom: 2px solid #ebebeb;
+    }
+
+.img{
+	padding:0px;
+			}
+.container-fluid {
+				padding:0;
+			}
+.form-group {
+				margin-bottom: 0px;
+			}
+html,body{
+				overflow-x:hidden;
+			}
+.navbar nav{
+                background-color: black;
+				border-radius:0px;
+			}
+.carousel-caption {
+			  margin-bottom: 35%;
+			  color:black;
+			  text-decoration:bold;
+			  font-family:'Montserrat';
+			}
+#signh1 {
+        text-align: center;
+        font-size: 175%;
+        color: #757575;
+        font-weight: 300;
+		font-family: "Open Sans", Helvetica, sans-serif;
+    }
+
+h1, input {
+        font-family: "Open Sans", Helvetica, sans-serif;
+    }
+
+.input:focus {
+        outline: none;
+        border-bottom-color: darkgray !important;
+    }
+.input:hover {
+        border-bottom-color: #dcdcdc;
+    }
+
+.input:invalid {
+        box-shadow: none;
+    }
+
+.inputButtonsign {
+        position: relative;
+        width: 85%;
+        height: 50px;
+        display: block;
+        margin: 30px auto 30px;
+        color: white;
+        background-color:darkslategrey;
+        border: none;
+        box-shadow: 0 5px 0 black;
+}
+
+.inputButtonsign:hover {
+        top: 2px;
+        box-shadow: 0 3px 0 black;
+}
+
+ .inputButtonsign:active {
+        top: 5px;
+        box-shadow: none;
+    }
+ 
+.inputButtonsign:focus {
+        outline: none;
+    }
+
+.navbar-brand{
+	font-size: xx-large;
+}
+.dropdown-menu{
+    background-color: black;
+    }
+
+.dropdown-menu > li > a{
+    color: white;
+    background-color: black;
+}
+
+#or{
+    padding-top: 25%;
+    vertical-align: middle;
+    text-align: center;
+    }
+
+.alert {
+    margin: 60px;
+    margin-bottom:0px;
+    padding: auto;
+    box-shadow: 3px 3px 5px #535353;
+    border-radius: 6px 6px 6px 6px;
+    }
+
+#alertMsg{
+	width: 90%;
+	position: absolute;
+	z-index: 2;
+}
+
+#urlInput{
+	width: 70%; 
+	float: left;"
+}
+
+.inputButtonurl{
+	margin-left: 30px;
+	margin-top: 9px;
+}

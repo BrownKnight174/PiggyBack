@@ -1,0 +1,9 @@
+templates, references etc
+.idea/workspace.xml
+./idea
+.idea
+db.sqlite3
+PiggyBack/__pycache__
+registration/__pycache__
+traveller/__pycache__
+customer/__pycache__
