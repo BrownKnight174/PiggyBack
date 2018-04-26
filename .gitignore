@@ -7,3 +7,5 @@ PiggyBack/__pycache__
 registration/__pycache__
 traveller/__pycache__
 customer/__pycache__
+
+*.pyc
