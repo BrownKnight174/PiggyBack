@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -8,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Invite Friends</title>
+    <title>Gateway</title>
 
     <!-- Bootstrap core CSS -->
     
@@ -32,6 +33,9 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">Previous</a></li>
+                <li><a href="#contact">Next</a></li>
               </ul>
             </div>
           </div>
@@ -39,15 +43,37 @@
       <!--</div>-->
 
     <br>
-    <h1 align = "Center"><font size = "6"><b>Invite your friends and earn!</b></font></h1>
-    <p align = "Center"><font size = "5">Send invites using</font></p>
+    <h1 align = "Center"><font size = "6"><b>PAYMENT OPTIONS</b></font></h1>
+              <!--<p align = "Center"><a class="btn btn-lg btn-primary" href="#" role="button">Credit Card</a></p>-->
+    <form align = "Center" action="/checkout" method="POST" style= "margin-top: 50px">
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_QVUejonJGWFeiRM6TBETPEUT" # Make sure to wrap the variable name with double {}
+        data-amount={{cost}}
+        data-name="Pay for your Product"
+        data-description="Your Product"
+        data-currency="usd">
+    </script>
+</form>
+              <!--<p align = "Center" style= "margin-top: 50px"><a class="btn btn-lg btn-primary" href="#" role="button">PayPal</a></p>-->
+              <form align = "Center" action="https://www.paypal.com/cgi-bin/webscr" method="post" style = "margin-top: 50px">
+
+  <!-- Saved buttons use the "secure click" command -->
+  <input type="hidden" name="cmd" value="_s-xclick">
+
+  <!-- Saved buttons are identified by their button IDs -->
+  <input type="hidden" name="hosted_button_id" value="221">
+
+  <!-- Saved buttons display an appropriate button image. -->
+  <input type="image" name="submit"
+    src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif"
+    alt="PayPal - The safer, easier way to pay online">
+  <img alt="" width="1" height="1"
+    src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+
+</form>
               <br>
-              <br>
-              <p align = "Center"><a class="btn btn-lg btn-primary" href="https://en-gb.facebook.com/login/" role="button">Facebook</a></p>
-              <p align = "Center"><a class="btn btn-lg btn-primary" style= "margin-top: 30px" href="https://accounts.google.com/Login/identifier?hl=EN&flowName=GlifWebSignIn&flowEntry=AddSession" role="button">Gmail</a></p>
-              <p align = "Center"><a class="btn btn-lg btn-primary" style= "margin-top: 30px" href="https://www.whatsapp.com/" role="button">WhatsApp</a></p>
-              <p align = "Center"><a class="btn btn-lg btn-primary" style= "margin-top: 30px" href="https://www.instagram.com/" role="button">Instagram</a></p>
-     
+              <br>  
+     </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
