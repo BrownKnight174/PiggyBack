@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Gateway</title>
+
+    <!-- Bootstrap core CSS -->
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+
+<!-- NAVBAR
+================================================== -->
+  <body style="background-color:#C0C0C0;">
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              </button>
+              <div style= "margin-left: -50px">
+              <a class="navbar-brand" href="#"><strong><font size = "5">PiggyBack</font></strong></a>
+            </div>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">Previous</a></li>
+                <li><a href="#contact">Next</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      <!--</div>-->
+
+    <br>
+    <h1 align = "Center"><font size = "6"><b>PAYMENT OPTIONS</b></font></h1>
+              <!--<p align = "Center"><a class="btn btn-lg btn-primary" href="#" role="button">Credit Card</a></p>-->
+    <form align = "Center" action="/checkout" method="POST" style= "margin-top: 50px">
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_QVUejonJGWFeiRM6TBETPEUT" # Make sure to wrap the variable name with double {}
+        data-amount={{cost}}
+        data-name="Pay for your Product"
+        data-description="Your Product"
+        data-currency="usd">
+    </script>
+</form>
+              <!--<p align = "Center" style= "margin-top: 50px"><a class="btn btn-lg btn-primary" href="#" role="button">PayPal</a></p>-->
+              <form align = "Center" action="https://www.paypal.com/cgi-bin/webscr" method="post" style = "margin-top: 50px">
+
+  <!-- Saved buttons use the "secure click" command -->
+  <input type="hidden" name="cmd" value="_s-xclick">
+
+  <!-- Saved buttons are identified by their button IDs -->
+  <input type="hidden" name="hosted_button_id" value="221">
+
+  <!-- Saved buttons display an appropriate button image. -->
+  <input type="image" name="submit"
+    src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif"
+    alt="PayPal - The safer, easier way to pay online">
+  <img alt="" width="1" height="1"
+    src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+
+</form>
+              <br>
+              <br>  
+     </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

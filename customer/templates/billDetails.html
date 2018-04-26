@@ -1,0 +1,62 @@
+{% extends "baseAfterLogin.html" %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Payment Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container" >
+      <div class="row " >
+        <div class="col-xs-12 mt-2" >
+          <h1 style="margin-top: 70px; padding-top: 10px; font-size: 30px;"><center>Payment Details</center></h1>
+        </div>
+      </div>
+      <div class="row row-content" >
+
+        <div class="col-lg-4" style="padding-top:30px;">
+       
+        <div class="btn-group">
+        <div class="out-put">
+
+
+
+<h3 style="padding-top:30px; ">Product Price:</h3>
+<p id= "pricep"></p>
+
+<h3 style="padding-top:30px;">U.S Taxes:</h3>
+<p id= "taxesp"></p>
+
+<h3 style="padding-top:30px;">Piggyback Fee:</h3>
+<p id="feep"></p>
+
+<h3 style="padding-top:30px;">Handling Charges:</h3>
+<p id="handlingp"></p>
+
+<h3 style="padding-top:30px;">Total payable amount:</h3>
+<p id="totalp"></p>
+
+<div style="padding: 20px;"></div>
+            <a href="/customer/paymentportal/"><button class="btn btn-primary">Proceed to Payment</button></a>
+</div>
+  </div>
+        </div>
+        </div>
+        </div>
+        
+<script>
+	$(document).ready(function() {
+		var query= parseFloat(window.location.href.substring(window.location.href.indexOf('$')+1));
+		var taxes= 0.1*query;
+		var fee = 0.03*query;
+		var handling= 0.05*query;
+		var total= taxes+query+fee+handling;
+		$("#pricep").text("$"+query);
+		$("#taxesp").text("$"+taxes);
+		$("#feep").text("$"+fee);
+		$("#handlingp").text("$"+handling);
+		$("#totalp").text("$"+total);
+	});
+</script>
+{% endblock %}
