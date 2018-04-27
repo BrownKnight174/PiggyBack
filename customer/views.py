@@ -8,6 +8,7 @@ from django.contrib import messages
 from customer.models import Customer, Order
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.http import HttpResponseRedirect
 
 
 class ProductPage(TemplateView):
@@ -54,6 +55,10 @@ class PaymentsPage(TemplateView):
             messages.error(request, "Cannot access specified page!")
             return redirect('HomePage')
 
+    def post(self, request, **kwargs):
+        request.session['city'] = request.POST['city']
+        return HttpResponseRedirect("/customer/paymentportal/")
+
 
 class PaymentPortalPage(TemplateView):
     def get(self, request, **kwargs):
@@ -87,6 +92,7 @@ class CheckoutPage(TemplateView):
         customer = Customer()
         customer.order = order
         customer.user = user
+        customer.city = request.session['city']
         customer.save()
 
         messages.info(request, "Payment successful! We'll notify you when we find a traveller for you!")

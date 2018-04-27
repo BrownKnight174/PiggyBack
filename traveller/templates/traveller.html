@@ -21,94 +21,29 @@
 		</div>
 		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 			<form method="POST" action="/traveller/">
+				{% csrf_token %}
 				<div class="form-group">
-					<label>Flight Name</label>
-					<input type="text" placeholder="Enter flight name" class="form-control well">
+					<label>Flight Number</label>
+					<input name="number" type="text" placeholder="Enter flight number" class="form-control well" required="required">
 				</div>
 				<br>
 				<div class="form-group">
 					<label>Flight PNR</label>
-					<input type="text" placeholder="Enter flight PNR" class="form-control well">
+					<input name="pnr" type="text" placeholder="Enter flight PNR" class="form-control well" required="required">
 				</div>
 				<br>
-<<<<<<< HEAD
+
 				<div class="form-group">
 					<label>Date of travel</label>
-					<input type="date" placeholder="Enter start date" class="form-control well">
-				</div>	
-				<div class="form-group">
-					<center><a link="href"><button class="btn btn-primary">Proceed</button></a></center>
-=======
-				<div class="row">
-					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<div class="form-group">
-							<label>Date of Travel</label>
-							<input type="date" placeholder="Enter start date" class="form-control">
-							
-						</div>
-					</div>
-					
-					<!--div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<div class="form-group">
-							<label>To</label>
-							<input type="date" placeholder="Enter end date" class="form-control">
-						</div>
-					</div-->
->>>>>>> 67d59255d8de7cee6cc65704738685d08579777d
+					<input name="date" type="date" placeholder="Enter start date" class="form-control well" required="required">
 				</div>
-			
+				<input type="submit" name="action" value="Continue" class="inputButtonsign"/>
 			</form>  
 		</div>
 		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 		</div>
 		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 		</div>
-      </div>
-	  
-	  <div class="container" >
-          <h3 class="single-headings"><center><strong>Verify your Aadhar details</strong></center></h3>
-          <h4><center><a href="verification/">Link</a></center></h4>
-      </div>
-	  
-	  <div class="container" >
-          <h3 class="single-headings"><center><strong>Not yet booked a flight</center></strong></h3>
-		  <br>
-		  <h4 class="single-headings"><center><strong>Expected travel</center></strong></h4>
-		  <br>
-      </div>
-      
-      <div class="container" >
-        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-		</div>
-		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-		</div>
-		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-          <form>
-			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
-					<div class="form-group">
-						<label>Between</label>
-						<input type="date" placeholder="Enter start date" class="form-control well">
-					</div>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
-					<div class="form-group">
-						<label>And</label>
-						<input type="date" placeholder="Enter end date" class="form-control well">
-					</div>
-				</div>
-			</div>
-		  </form>
-        </div>
-        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-		</div>
-		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-		</div>
-      </div>
-	  
-	  <div class="container" >
-          <h3 class="single-headings"><center><strong>Get notified for best deals</strong></center></h3>
-          <center><a link="href"><button class="btn btn-primary">Notify</button></a></center>
       </div>
       <br>
     
