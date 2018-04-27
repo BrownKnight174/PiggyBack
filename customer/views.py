@@ -5,6 +5,9 @@ from selenium.webdriver.chrome.options import Options
 from django.conf import settings
 import platform
 from django.contrib import messages
+from customer.models import Customer, Order
+from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class ProductPage(TemplateView):
@@ -33,6 +36,7 @@ class ProductPage(TemplateView):
 
                 request.session['productCost'] = productData['productCost'][1:]
                 request.session['productTitle'] = productData['productTitle']
+                request.session['url'] = url
 
                 return render(request, 'productDescription.html', context=cleanData)
         else:
@@ -70,7 +74,22 @@ class CheckoutPage(TemplateView):
         return redirect('HomePage')
 
     def post(self, request, **kwargs):
+        order = Order()
+        order.product_name = request.session['productTitle']
+        order.product_url = request.session['url']
+        order.fee = float(request.session['productCost'])*0.15
+        order.status = "Finding a traveller"
+        order.creation_time = timezone.now()
+        order.save()
 
+        user = User.objects.get(pk=request.user.pk)
+
+        customer = Customer()
+        customer.order = order
+        customer.user = user
+        customer.save()
+
+        messages.info(request, "Payment successful! We'll notify you when we find a traveller for you!")
         return redirect('HomePage')
 
 

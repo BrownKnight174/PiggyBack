@@ -25,13 +25,10 @@
 <h3 style="padding-top:30px; ">Product Price:</h3>
 <p id= "pricep"></p>
 
-<h3 style="padding-top:30px;">U.S Taxes:</h3>
-<p id= "taxesp"></p>
-
-<h3 style="padding-top:30px;">Piggyback Fee:</h3>
+<h3 style="padding-top:30px;">Service Fee:</h3>
 <p id="feep"></p>
 
-<h3 style="padding-top:30px;">Handling Charges:</h3>
+<h3 style="padding-top:30px;">Traveller's Fee:</h3>
 <p id="handlingp"></p>
 
 <h3 style="padding-top:30px;">Total payable amount:</h3>
@@ -48,12 +45,10 @@
 <script>
 	$(document).ready(function() {
 		var query= parseFloat(window.location.href.substring(window.location.href.indexOf('$')+1));
-		var taxes= 0.1*query;
-		var fee = 0.03*query;
-		var handling= 0.05*query;
-		var total= taxes+query+fee+handling;
+		var fee = 0.05*query;
+		var handling= 0.1*query;
+		var total= fee+handling;
 		$("#pricep").text("$"+query);
-		$("#taxesp").text("$"+taxes);
 		$("#feep").text("$"+fee);
 		$("#handlingp").text("$"+handling);
 		$("#totalp").text("$"+total);
