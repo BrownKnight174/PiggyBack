@@ -19,7 +19,8 @@ class ProductPage(TemplateView):
             productData = GetProductData(url)
 
             if productData is None:
-                redirect('HomePage')
+                messages.error(request, "Please enter valid URL!")
+                return render(request, "home.html", context={"user": request.user})
             else:
                 cleanData = CleanData(productData)
 
@@ -28,7 +29,7 @@ class ProductPage(TemplateView):
 
                 return render(request, 'productDescription.html', context=cleanData)
         else:
-            return redirect('LandingPage')
+            return render(request, "home.html")
 
 
 class PaymentsPage(TemplateView):
@@ -48,7 +49,7 @@ class PaymentPortalPage(TemplateView):
         cost = request.session.get('productCost', None)
         title = request.session.get('productTitle', None)
         if cost and title:
-            context = {'productCost': str(float(cost)*100), 'productTitle': title}
+            context = {'productCost': str(float(cost)*100*0.15), 'productTitle': title}
             print(context)
             return render(request, 'paymentPortal.html', context=context)
         else:
@@ -83,15 +84,17 @@ def GetProductData(url):
         print(productTitle)
 
         try:
-            productCost = browser.find_element_by_id('priceblock_ourprice').text
-            print(productCost.strip())
-            if productCost == "":
-                productCost = browser.find_element_by_id('priceblock_usedprice').text
+            try:
+                productCost = browser.find_element_by_id('priceblock_ourprice').text
                 print(productCost.strip())
+                if productCost == "":
+                    productCost = browser.find_element_by_id('priceblock_usedprice').text
+                    print(productCost.strip())
+            except:
+                productCost = browser.find_element_by_id('priceblock_usedprice').text
         except:
             productCost = browser.find_element_by_id('priceblock_dealprice').text
             print(productCost.strip())
-
 
         availability = browser.find_element_by_id('availability').text
         print(availability.strip())
@@ -116,8 +119,11 @@ def CleanData(productData):
     cost = productData.get("productCost", "")
     cost.strip()
     splitCost = cost.split()
-    print(splitCost)
-    cleanedCost = splitCost[0] + splitCost[1] + '.' + splitCost[2]
+    if len(splitCost) == 3:
+        print(splitCost)
+        cleanedCost = splitCost[0] + splitCost[1] + '.' + splitCost[2]
+    elif len(splitCost) == 1:
+        cleanedCost = splitCost[0]
     print(cleanedCost)
     productData['productCost'] = cleanedCost
 
