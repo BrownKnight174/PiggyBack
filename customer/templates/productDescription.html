@@ -3,28 +3,39 @@
 
 {% block head %}
 <title>Product details</title>
-
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<style>
+    .labels{
+      font-family:'Muli';
+    }
+</style>
 {% endblock %}
 
 {% block body %}
 
-<div style="margin: 60px;"></div>
+<div style="margin: 60px;">
+</div>
   	<div class="container">
-  		<h2> Product Title: </h2> <h4>{{ productTitle }}</h4>
-		<h2> Product Cost: </h2> <h4>{{ productCost }}</h4>
-		<h2> Product Availability: </h2> <h4>{{availability}}</h4>
-		<h2> Product Description: </h2>
-		{% for point in description %}
-		 	<h4> {{ point }} </h4>
-		{% endfor %}
-
-
-<div class="row row-content">
-	<h4>Was this the product you wanted?</h4>
-	
-	<a href="/customer/payment?price={{productCost}}" class="btn btn-success btn-lg">Click to proceed to payment gateway</a>
-</div>
-</div>
+  		<h4 class="labels"><strong> Item name</strong> </h4><br>
+  		<div class="well">{{ productTitle }}</div><br>
+  		<h4 class="labels"><strong> Item description</strong> </h4><br>
+  		<div class="well">
+  			{% for point in description %}
+  		 	<h4> {{ point }} </h4>
+  			{% endfor %}
+  		</div><br>
+  		<h4 class="labels"><strong> Item price </strong></h4> <br>
+  		<div class="well">{{ productCost }}</div><br>
+  		<h4 class="labels"><strong> Item availability</strong> </h4><br>
+  		<div class="well">{{availability}}</div><br>
+  		<div class="row row-content">
+  			<center><h3 class="labels">Was this the product you wanted?</h3></center><br>
+  			<center><a href="/customer/payment?price={{productCost}}" class="btn btn-primary btn-lg labels">Click to proceed to payment gateway</a></center>
+  		</div>
+		<br>
+	 </div>
 {% endblock %}
 
 
