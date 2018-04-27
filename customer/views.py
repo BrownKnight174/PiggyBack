@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from django.conf import settings
 import platform
+from django.contrib import messages
 
 
 class ProductPage(TemplateView):
@@ -14,24 +15,54 @@ class ProductPage(TemplateView):
         if request.POST['action'] == "Continue":
 
             url = request.POST.get("sendURL")
+
             productData = GetProductData(url)
 
             if productData is None:
                 redirect('HomePage')
             else:
-                return render(request, 'productDescription.html', context=productData)
+                cleanData = CleanData(productData)
+
+                request.session['productCost'] = productData['productCost'][1:]
+                request.session['productTitle'] = productData['productTitle']
+
+                return render(request, 'productDescription.html', context=cleanData)
         else:
             return redirect('LandingPage')
 
 
 class PaymentsPage(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'billDetails.html', context=None)
+        cost = request.session.get('productCost', None)
+        title = request.session.get('productTitle', None)
+        if cost and title:
+            context = {'productCost': cost, 'productTitle': title}
+            return render(request, 'billDetails.html', context=None)
+        else:
+            messages.error(request, "Cannot access specified page!")
+            return redirect('HomePage')
 
 
 class PaymentPortalPage(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'paymentPortal.html', context=None)
+        cost = request.session.get('productCost', None)
+        title = request.session.get('productTitle', None)
+        if cost and title:
+            context = {'productCost': str(float(cost)*100), 'productTitle': title}
+            print(context)
+            return render(request, 'paymentPortal.html', context=context)
+        else:
+            messages.error(request, "Cannot access specified page!")
+            return redirect('HomePage')
+
+
+class CheckoutPage(TemplateView):
+    def get(self, request, **kwargs):
+        messages.error(request, "Cannot access specified page!")
+        return redirect('HomePage')
+
+    def post(self, request, **kwargs):
+        return redirect('HomePage')
 
 
 def GetProductData(url):
@@ -53,6 +84,9 @@ def GetProductData(url):
     try:
         productCost = browser.find_element_by_id('priceblock_ourprice').text
         print(productCost.strip())
+        if productCost == "":
+            productCost = browser.find_element_by_id('priceblock_usedprice').text
+            print(productCost.strip())
     except:
         productCost = browser.find_element_by_id('priceblock_dealprice').text
         print(productCost.strip())
@@ -61,8 +95,7 @@ def GetProductData(url):
     availability = browser.find_element_by_id('availability').text
     print(availability.strip())
 
-#    descriptionElements = browser.find_elements_by_xpath("//*[@id='feature-bullets']/ul/li/span[@class='a-list-item']")
-    descriptionElements = browser.find_elements_by_class_name("showHiddenFeatureBullets")
+    descriptionElements = browser.find_elements_by_xpath("//*[@id='feature-bullets']/ul/li/span[@class='a-list-item']")
     description = []
     for element in descriptionElements:
         description.append(element.text)
@@ -72,3 +105,35 @@ def GetProductData(url):
     productData = {'productTitle': productTitle, 'productCost': productCost, 'availability': availability, 'description': description}
 
     return productData
+
+
+def CleanData(productData):
+    # Cleaning cost
+    cost = productData.get("productCost", "")
+    cost.strip()
+    splitCost = cost.split()
+    print(splitCost)
+    cleanedCost = splitCost[0] + splitCost[1] + '.' + splitCost[2]
+    print(cleanedCost)
+    productData['productCost'] = cleanedCost
+
+    # Cleaning product title
+    title = productData.get("productTitle", "")
+    title.strip()
+    productData['productTitle'] = title
+
+    # Cleaning availability
+    availability = productData['availability']
+    availability.strip()
+    if availability == '':
+        availability = "No information of availability available."
+    productData['availability'] = availability
+
+    # Cleaning product description
+    description = productData['description']
+    if not description:
+        description.append("No description available.")
+    productData['description'] = description
+
+    return productData
+
