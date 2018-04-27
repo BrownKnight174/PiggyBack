@@ -6,16 +6,6 @@
 {% endblock %}
 
 {% block body %}
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-danger alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-    {{ message }}
-</div>
-{% endfor %}
-{% endif %}
 <div style="padding: 0px;"></div>
 <section id="hero" class="hero hero-home bg-gray">
       <div class="container">
@@ -29,19 +19,10 @@
         </div>
       </div>
     </section>
-.text-block {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background-color: black;
-    color: white;
-    padding-left: 20px;
-    padding-right: 20px;
-}
 .carousel-content {
-  position: relative;
-  bottom: 5%;
-  left: 80%;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
   z-index: 20;
   color: white;
   text-shadow: 0 1px 2px rgba(0,0,0,.6);
@@ -130,18 +111,15 @@
                         <img class="img-responsive"
                          src='{% static "img/avatar-3.jpg" %}' alt="...">
                         <div class="carousel-content">
-                        <h2>aaa</h2><strong class="name">Jessica Watson</strong>
-				<div class="text-block">
-                                <h4>Jessica Watson</h4>
-                                 <p>Loved Piggyback!!</p>
-  </div>
+                        <p>aaa</p><strong class="name">Jessica Watson</strong>
                         </div>
                     </div>
                     <div class="row item">
                         <img src='{% static "img/watch.jpg" %}' class="img-responsive">
                         <div class="carousel-content">
-                        <h2>Samsung    SmartWatch <span class="label label-danger label-xs">New</span></h2>
-                       
+                        <h2>SaSaSamsung SmartWatch <span class="label label-danger label-xs">New</span></h2>
+                         <h3>US Price: $250 </h3>
+						<h4>Indian Price: $350</h3>
                 		<p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a></p>
                         </div>
                     </div>
@@ -149,8 +127,10 @@
                         <img class="img-responsive"
                          src='{% static "img/camera.png" %}' alt="...">
                         <div class="carousel-content">
-						          <h2><span class="label label-danger label-xs">DSLR Camera</span></h2>
-                   
+						          <h2>DSLR Camera<span class="label label-danger label-xs">New</span></h2>
+                         <p>US price: $1000
+                         </p>
+							<p>Indian price: $1350</p>
 						  <p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a>
                         </div>
                     </div>
@@ -176,5 +156,3 @@
 
 
 {% endblock %}
-
-
