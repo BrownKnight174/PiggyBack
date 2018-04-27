@@ -4,8 +4,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800">
 <link rel="stylesheet" href='{% static "css/style.red.css" %}' id="theme-stylesheet">
 {% endblock %}
-
 {% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger alert-dismissible" role="alert" id="alertMsg">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
 <div style="padding: 0px;"></div>
 <section id="hero" class="hero hero-home bg-gray">
       <div class="container">
