@@ -22,7 +22,10 @@ class ProductPage(TemplateView):
                 messages.error(request, "Please enter valid URL!")
                 return render(request, "home.html", context={"user": request.user})
             else:
-                cleanData = CleanData(productData)
+                try:
+                    cleanData = CleanData(productData)
+                except:
+                    cleanData = productData
 
                 request.session['productCost'] = productData['productCost'][1:]
                 request.session['productTitle'] = productData['productTitle']
