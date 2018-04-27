@@ -33,6 +33,7 @@ class ProductPage(TemplateView):
 
                 request.session['productCost'] = productData['productCost'][1:]
                 request.session['productTitle'] = productData['productTitle']
+                request.session['url'] = url
 
                 return render(request, 'productDescription.html', context=cleanData)
         else:

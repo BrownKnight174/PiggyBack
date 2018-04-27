@@ -8,8 +8,6 @@ import platform
 
 class TravellerPage(TemplateView):
     def get(self, request, **kwargs):
-        # PNR = ""
-        # lName = ""
         # print(CheckBooking(PNR, lName))
         return render(request, 'traveller.html', context=None)
 
@@ -43,6 +41,8 @@ def CheckBooking(ref, lName):
 
     errorElement = browser.find_elements_by_class_name("errorMsgs")
     if len(errorElement) == 0:
-        return True
+        city = browser.find_element_by_css_selector("body > div.push.containerpage_main > div.pageHeight > section.main.search_fligh_main.clearfix > div.itineraryWrapper.middle_container > section > div > div.indigo_flights > div.itiFlightDetails.flights_table > table > tbody > tr > td:nth-child(5)").text
+        print(city)
+        return True, city
     else:
-        return False
+        return False, None
