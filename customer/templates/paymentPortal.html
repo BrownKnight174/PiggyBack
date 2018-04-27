@@ -29,12 +29,13 @@
     <br>
     <h1 align = "Center"><font size = "6"><b>PAYMENT OPTIONS</b></font></h1>
               <!--<p align = "Center"><a class="btn btn-lg btn-primary" href="#" role="button">Credit Card</a></p>-->
-    <form align = "Center" action="/checkout" method="POST" style= "margin-top: 50px">
+    <form align = "Center" action="/customer/checkout/" method="POST" style= "margin-top: 50px">
+        {% csrf_token %}
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="pk_test_QVUejonJGWFeiRM6TBETPEUT" # Make sure to wrap the variable name with double {}
-        data-amount={{cost}}
+        data-amount={{productCost}}
         data-name="Pay for your Product"
-        data-description="Your Product"
+        data-description={{productTitle}}
         data-currency="usd">
     </script>
 </form>
