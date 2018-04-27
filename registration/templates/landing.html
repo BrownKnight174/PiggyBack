@@ -6,6 +6,16 @@
 {% endblock %}
 
 {% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
 <div style="padding: 0px;"></div>
 <section id="hero" class="hero hero-home bg-gray">
       <div class="container">
