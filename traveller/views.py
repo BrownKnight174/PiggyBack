@@ -8,9 +8,9 @@ import platform
 
 class TravellerPage(TemplateView):
     def get(self, request, **kwargs):
-        PNR = ""      
-        lName = ""
-        print(CheckBooking(PNR, lName))
+        # PNR = ""
+        # lName = ""
+        # print(CheckBooking(PNR, lName))
         return render(request, 'traveller.html', context=None)
 
 
