@@ -4,6 +4,11 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from django.conf import settings
 import platform
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from traveller.models import Traveller
+from django.contrib.auth.models import User
+import datetime
 
 
 class TravellerPage(TemplateView):
@@ -11,10 +16,48 @@ class TravellerPage(TemplateView):
         # print(CheckBooking(PNR, lName))
         return render(request, 'traveller.html', context=None)
 
+    def post(self, request, **kwargs):
+        PNR = request.POST['pnr']
+        lName = request.user.last_name
+
+        try:
+            valid, city = CheckBooking(PNR, lName)
+        except:
+            messages.error(request, "Please enter valid PNR!")
+            return render(request, 'traveller.html', context=None)
+
+        if valid:
+            request.session['city'] = city
+            request.session['flight_number'] = request.POST['number']
+            request.session['PNR'] = request.POST['pnr']
+            request.session['date_of_travel'] = request.POST['date']
+        else:
+            messages.error(request, "Please enter valid PNR!")
+            return render(request, 'traveller.html', context=None)
+
+        return HttpResponseRedirect("/traveller/verification/")
+
 
 class VerificationPage(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'Verification.html', context=None)
+
+    def post(self, request, **kwargs):
+        traveller = Traveller()
+
+        traveller.user = User.objects.get(pk=request.user.pk)
+        traveller.phone_number = request.POST['Contact']
+        traveller.pnr_number = request.session['PNR']
+        traveller.city_of_travel = request.session['city']
+        traveller.date_of_travel = datetime.datetime.strptime(request.session['date_of_travel'], "%Y-%m-%d").date()
+        traveller.address = request.POST['Address']
+        traveller.aadhar_name = request.POST['Fullname']
+        traveller.aadhar_no = request.POST['Aadhar']
+
+        traveller.save()
+
+        messages.info(request, "Registration successful! We'll notify you when we find a product to deliver!")
+        return HttpResponseRedirect("/home/")
 
 
 def CheckBooking(ref, lName):
