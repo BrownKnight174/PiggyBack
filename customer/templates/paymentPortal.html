@@ -2,26 +2,15 @@
 {% load staticfiles %}
 
 {% block head %}
-<!--
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">-->
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <!--<meta name="description" content="">
-    <meta name="author" content="">
--->
-    <title>Gateway</title>
+ <title>Gateway</title>
 
-    <!-- Bootstrap core CSS -->
+   
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 {% endblock %}
-<!-- NAVBAR
-================================================== -->
+
 {% block body %}
   <body style="background-color:#C0C0C0;">
     <br>
@@ -29,13 +18,13 @@
     <br>
     <br>
     <h1 align = "Center"><font size = "6"><b>PAYMENT OPTIONS</b></font></h1>
-              <!--<p align = "Center"><a class="btn btn-lg btn-primary" href="#" role="button">Credit Card</a></p>-->
-    <form align = "Center" action="/checkout" method="POST" style= "margin-top: 50px">
+    <form align = "Center" action="/customer/checkout/" method="POST" style= "margin-top: 50px">
+        {% csrf_token %}
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="pk_test_QVUejonJGWFeiRM6TBETPEUT" # Make sure to wrap the variable name with double {}
-        data-amount={{cost}}
+        data-amount={{productCost}}
         data-name="Pay for your Product"
-        data-description="Your Product"
+        data-description={{productTitle}}
         data-currency="usd">
     </script>
 </form>
@@ -59,15 +48,10 @@
               <br>
               <br>  
      </div>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+     
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="../../assets/js/vendor/holder.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
   </body>
   {% endblock %}
 

@@ -1,36 +1,8 @@
-.container-fluid {
-          padding:0;
-        }
-        .form-group {
-          margin-bottom: 0px;
-        }
-      html,body{
-        overflow-x:hidden;
-      }
-      .navbar{
-        border-radius:0px;
-      }
-      .heading{
-        padding-top:20px;
-      }
-      .formin{
-        margin-left:80px;
-      }
-      .formin1{
-        margin-left:20px;
-      }
-      @media screen and (max-width: 600px) {
-        .heading{
-          padding-top:10px;
-        }
-        .formin{
-          margin-left:20px;
-        }
-        .form{
-          padding-left:50px;
-        }
-        .image{
-          display:none;
-        }
-      
-      }
+.single-headings{
+      font-family: 'Quicksand';
+      font-size:25px;
+}
+label{
+font-family:'Muli';
+font-size:20px;
+}

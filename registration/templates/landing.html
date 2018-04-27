@@ -4,8 +4,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800">
 <link rel="stylesheet" href='{% static "css/style.red.css" %}' id="theme-stylesheet">
 {% endblock %}
-
 {% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger alert-dismissible" role="alert" id="alertMsg">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
 <div style="padding: 0px;"></div>
 <section id="hero" class="hero hero-home bg-gray">
       <div class="container">
@@ -13,13 +22,21 @@
           <div class="col-lg-6 text order-2 order-lg-1">
             <h1>PiggyBack &mdash; You shop, we deliver</h1>
             <p class="hero-text">Revolutionizing the way you shop online, and travel!</p>
-            <div class="CTA"><a href="#features" class="btn btn-primary btn-shadow btn-gradient link-scroll">Discover More</a><a href="#" class="btn btn-outline-primary">Sign Up Now</a></div>
+            <div class="CTA"><a href="#features" class="btn btn-primary btn-shadow btn-gradient link-scroll">Discover More</a><a href="/signup/" class="btn btn-outline-primary">Sign Up Now</a></div>
           </div>
           
         </div>
       </div>
     </section>
-
+    <!--
+.carousel-content {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  z-index: 20;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}-->
 <section id="about-us" class="about-us bg-gray">
       <div class="container">
         <h2>About Us</h2>
@@ -90,10 +107,11 @@
           <h2>Happy Clients</h2>
           <p class="lead">What could be better marketing than some happy customers?</p>
         </header>
+        <!--
            <div class="col-xs-12">
-			   <div id="mycarousel" class="carousel slide" data-ride="carousel">
+			   <div id="mycarousel" class="carousel slide" data-ride="carousel"> -->
 				   <!-- Indicators -->
-                <ol class="carousel-indicators">
+               <!-- <ol class="carousel-indicators">
                     <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#mycarousel" data-slide-to="1"></li>
                     <li data-target="#mycarousel" data-slide-to="2"></li>
@@ -101,44 +119,136 @@
 
 				   <div class="carousel-inner" role="listbox">
                     <div class="row item active">
-                        <img class="img-responsive"
-                         src='{% static "img/avatar-3.jpg" %}' alt="Uthappizza">
-                        <div class="carousel-caption">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p><strong class="name">Jessica Watson</strong>
-                        </div>
-                    </div>
+                        
+      
+        <div class="col-lg-4">
+                <img src='{% static "img/avatar-3.jpg" %}' class="img-responsive">
+          <h2 style = "color: white">Watch</h2>
+          
+          </div>
+        <div class="col-lg-4">
+
+      <img src='{% static "img/Two.PNG" %}' class="img-responsive">
+         </div>
+         
+          </div>
+        
                     <div class="row item">
-                        <img src='{% static "img/watch.jpg" %}' class="img-responsive">
-                        <div class="carousel-caption">
-                        <h2>Samsung SmartWatch <span class="label label-danger label-xs">New</span></h2>
-                         <p>US Price: $250 </p>
-						<p>Indian Price: $350</p>
-                		<p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a></p>
-                        </div>
-                    </div>
-                    <div class="row item">
-                        <img class="img-responsive"
-                         src='{% static "img/camera.png" %}' alt="Alberto Somayya">
-                        <div class="carousel-caption">
-						<h2>DSLR Camera</h2>
-                         <p>US price: $1000
-                         </p>
-							<p>Indian price: $1350</p>
-						  <p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a>
-                        </div>
-                    </div>
-                </div>
+                 
+              
+          
+        <div class="col-lg-4">
+
+      <img src='{% static "img/Three3.PNG" %}' class="img-responsive">
+          <h2 style = "color: white">Laptop</h2>
+
+          <p></p>
+          <br>
+         </div>
+         
+         </div>
+                    
+                </div> -->
+
 			<!-- Controls -->
-                <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+              <!--  <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
-                </a>
+                </a> -->
 
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" >
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" >
+    <div class="item active">
+      <div align = "Center">
+      <br>
+      <br>
+      <center>
+      <h1 style = "color: white"> Top deals of the day </h1>
+      <br>
+      </center>
+      <div class="row">
+        <div class="col-lg-6">
+          <img class="img-circle" src='{% static "img/download.jpg"%}' alt="Generic placeholder image" width="230" height="220" style="margin-top: -40px">
+          <h2 style = "color: black">Andrew Jones</h2>
+          <p></p>
+          <br>
+        </div>
+        <div class="col-lg-6">
+          <p style="color:red; font-size: 24px; text-align:center; position: relative;
+    left: -30px;"> Great way to cut down your expenses on travelling by earning on PiggyBack.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="item">
+          <div align = "Center">
+      <br>
+      <br>
+      <center>
+      <h1 style = "color: white"> Top deals of the day </h1>
+      <br>
+      </center>
+      <div class="row">
+        
+        <div class="col-lg-6">
+          <img class="img-circle" src='{% static "img/avatar-5.JPG" %}' alt="Generic placeholder image" width="230" height="220" style="margin-top: -40px">
+          <h2 style = "color: black">Jessica Olivia</h2>
+          <p></p>
+          <br>
+        </div>
+        <div class="col-lg-6">
+          <p style="color:red; font-size: 24px; text-align:center; position: relative;
+    left: -30px;"> Had a great experience with PiggyBack. Great way to earn money while travelling. Would love to travel again and again.</p>
+        </div>
+        
+    </div>
+</div>
+    </div>
+
+    <div class="item">
+      <div align = "Center">
+      <br>
+      <br>
+      <center>
+      <h1 style = "color: white"> Top deals of the day </h1>
+      <br>
+      </center>
+      <div class="row">
+        <div class="col-lg-6">
+          <img class="img-circle" src='{% static "img/In1.JPG" %}' alt="Generic placeholder image" width="230" height="260" style="margin-top: -40px" >
+          <h2 style = "color: black">Akash Kapoor</h2>
+          <p></p>
+          <br>
+        </div>
+        <div class="col-lg-6">
+          <p style="color:red; font-size: 24px; text-align:center; margin-top: 50px; margin-right: 30px"> One of the best overseas product's delivery option.</p>
+        </div>
+    </div>
+  </div>
+</div>
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
             </div>
 
             </div>
