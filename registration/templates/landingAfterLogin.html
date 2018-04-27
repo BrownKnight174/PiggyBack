@@ -7,6 +7,8 @@
 <title>
 	PiggyBack
 </title>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
@@ -21,21 +23,20 @@
 {% endfor %}
 {% endif %}
 <div class="container-fluid">
-	<div class="row mb-0">
-		<div class="col-xs-12">
-			<div class="col-lg-6 col-sm-6 img text-center">
-				<a href="/traveller"><img src='{% static "img/traveller.jpg" %}' alt="traveller"/></a>
-				<div class="carousel-caption ">
-					<h1>Traveller</h1>
-				</div>
-			</div>
-			<div class="col-lg-6 col-sm-6 img">
-				<a href="/home"><img src='{% static "img/buyer.jpg" %}' alt="buyer"/></a>
-				<div class="carousel-caption" style="color:white;">
-					<h1>Buyer</h1>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <img class="background-image img-responsive" src='{% static "img/capture.png" %}'>
+                <div class="carousel-caption">
+                    <div class="pull-left left-caption">
+                        <p class="tr-question"><strong>Do you want to make<br> money travelling?</strong></p>
+                        <a href="#"><button class="btn btn-transparent button">Traveller</button></a>
+                    </div>
+                    <div class="pull-right right-caption">
+                        <p class="cu-question"><strong>Do you want to get a <br>product delivered?</strong></p>
+                        <a href="#"><button class="btn btn-transparent button">Customer</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
