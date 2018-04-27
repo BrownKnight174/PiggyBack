@@ -19,7 +19,8 @@ class ProductPage(TemplateView):
             productData = GetProductData(url)
 
             if productData is None:
-                redirect('HomePage')
+                messages.error(request, "")
+                return render(request, 'productDescription.html')
             else:
                 cleanData = CleanData(productData)
 
@@ -48,7 +49,7 @@ class PaymentPortalPage(TemplateView):
         cost = request.session.get('productCost', None)
         title = request.session.get('productTitle', None)
         if cost and title:
-            context = {'productCost': str(float(cost)*100), 'productTitle': title}
+            context = {'productCost': str(float(cost)*100*0.15), 'productTitle': title}
             print(context)
             return render(request, 'paymentPortal.html', context=context)
         else:
@@ -116,8 +117,11 @@ def CleanData(productData):
     cost = productData.get("productCost", "")
     cost.strip()
     splitCost = cost.split()
-    print(splitCost)
-    cleanedCost = splitCost[0] + splitCost[1] + '.' + splitCost[2]
+    if len(splitCost) == 3:
+        print(splitCost)
+        cleanedCost = splitCost[0] + splitCost[1] + '.' + splitCost[2]
+    elif len(splitCost) == 1:
+        cleanedCost = splitCost[0]
     print(cleanedCost)
     productData['productCost'] = cleanedCost
 
