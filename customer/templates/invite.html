@@ -8,12 +8,50 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+<<<<<<< HEAD
 
     {% endblock %}
 
+=======
+<style>
+    body{
+        background-color:#C0C0C0;
+    }
+</style>
+  </head>
+{% endblock %}
+<!-- NAVBAR
+================================================== -->
+>>>>>>> 9aff8e195719110d3ce123fc89831d79d6a5fb00
 {% block body %}
-  <body style="background-color:#C0C0C0;">
+  
     <div id="fb-root"></div>
+    <div class="container">
+        <h1><center>Invite your friends and earn!</center></h1><br>
+        <h3><center>Send invites using</center></h3><br>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <a class="fb-share-button " data-href="https://piggyback.in" data-layout="button" data-size="large" data-mobile-iframe="true"></a>
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpiggyback.in%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore ">
+            <button type="button" class="btn btn-primary">Facebook<button></a>
+        </div>
+        <div class="a2a_kit a2a_kit_size_32 a2a_default_style col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+            <a class="a2a_button_google_plus"></a>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <a href="https://api.whatsapp.com/send?text=Hey!%20Check%20out%20this%20website:-%20www.piggyback.in" >
+                <button type="button" class="btn btn-primary">Whatsapp</button>
+            </a>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+             <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://developer.linkedin.com&title=LinkedIn%20Developer%20Network
+                &summary=My%20favorite%20developer%20program&source=LinkedIn" >
+                 <button type="button" class="btn btn-primary">LinkedIn</button>
+            </a>
+        </div>
+    </div>
+    
+<script async src="https://static.addtoany.com/menu/page.js"></script>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -22,6 +60,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+<<<<<<< HEAD
     
     <br>
     <br>
@@ -43,9 +82,13 @@
               <p align = "Center"><a class="btn btn-lg btn-primary" style= "margin-top: 30px" href="https://www.linkedin.com/shareArticle?mini=true&url=http://developer.linkedin.com&title=LinkedIn%20Developer%20Network
 &summary=My%20favorite%20developer%20program&source=LinkedIn" role="button">LinkedIn</a></p>
      
+=======
+
+              
+>>>>>>> 9aff8e195719110d3ce123fc89831d79d6a5fb00
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
    
-  </body>
+
 {% endblock %}

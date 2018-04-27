@@ -5,20 +5,21 @@ from selenium.webdriver.chrome.options import Options
 from django.conf import settings
 import platform
 
+
 class TravellerPage(TemplateView):
     def get(self, request, **kwargs):
-        PNR = ""      
-        lName = ""
-        print(CheckBooking(PNR, lName))
-        return render(request, 'traveller.html', context=None)  #why are we checking before entering anything
+        # PNR = ""
+        # lName = ""
+        # print(CheckBooking(PNR, lName))
+        return render(request, 'traveller.html', context=None)
 
 
 class VerificationPage(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'Verification.html', context=None)
 
-def CheckBooking(ref, lName):
 
+def CheckBooking(ref, lName):
     chrome_options = Options()
     chrome_options.add_argument("--headless")
 
