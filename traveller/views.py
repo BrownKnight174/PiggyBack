@@ -7,10 +7,10 @@ import platform
 
 class TravellerPage(TemplateView):
     def get(self, request, **kwargs):
-        PNR = ""
+        PNR = ""      
         lName = ""
         print(CheckBooking(PNR, lName))
-        return render(request, 'traveller.html', context=None)
+        return render(request, 'traveller.html', context=None)  #why are we checking before entering anything
 
 
 class VerificationPage(TemplateView):
