@@ -9,6 +9,83 @@
 </title>
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<style>
+	.traveller{
+        padding-left:0px;
+    }
+    .customer{
+        padding-left:5px;
+    }
+    .left-caption{
+        margin-bottom:200px;
+        padding:0px;
+        margin-left:-100px;
+    }
+    .right-caption{
+        margin-bottom:200px;
+        padding:0px;
+        margin-right:-100px;
+    }
+    .tr-question{
+        color:white;
+        font-size:30px;
+        font-family:'Raleway';
+    }
+    .cu-question{
+        color:white;
+        font-size:30px;
+        font-family:'Raleway';
+    }
+    .button{
+        color:white; 
+        font-family:'Montserrat';
+        font-size:20px;
+    }
+    .container-fluid{
+        margin-top:25px;
+        padding:5px;
+        margin-bottom:25px;
+    }
+    .btn-transparent {
+        background: transparent;
+        border: 1px solid white;
+    }
+    .btn-transparent:hover {
+        color: white;
+        background-color: rgba(255,255,255,0.2);
+    }
+    html,body{
+        overflow-x: hidden;
+    }
+    @media only screen and (max-width: 600px) {
+        .container-fluid{
+            margin-top:10px;
+            padding:5px;
+        }
+        .left-caption{
+            margin-bottom:40px;
+            padding:0px;
+            margin-left:-10px;
+        }
+        .right-caption{
+            margin-bottom:40px;
+            padding:0px;
+            margin-right:-10px;
+        }
+        .tr-question{
+            font-size:10px;
+        }
+        .cu-question{
+            font-size:10px;
+        }
+        .button{
+            font-size:10px;
+        }
+        .img-responsive{
+            height:250px;
+        }
+    }
+</style>
 {% endblock %}
 
 {% block body %}
