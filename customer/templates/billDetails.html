@@ -33,10 +33,14 @@
 
 <h3 style="padding-top:30px;">Total payable amount:</h3>
 <p id="totalp"></p>
+            <div>
+            <form method="POST" action="/customer/payment/">
+     {% csrf_token %}
+                <input name="city" type="text" placeholder="Enter City" required="required" class="input pass"/>
+                <input type="submit" name="action" value="Proceed to Payment" class="inputButtonsign"/>
 
-<div style="padding: 20px;"></div>
-            <a href="/customer/paymentportal/"><button class="btn btn-primary">Proceed to Payment</button></a>
-</div>
+            </form>
+            </div>
   </div>
         </div>
         </div>

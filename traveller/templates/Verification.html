@@ -120,36 +120,37 @@ width: 160px;
         <div class="out-put">
 
 
- <form method="POST" action="/traveller/verification/"> 
+ <form method="POST" action="/traveller/verification/">
+     {% csrf_token %}
 
- <h3 style="padding-top:30px; ">Please enter your Aadhar card no.-
+ <h3 style="padding-top:30px; ">Please enter your Aadhar card number
         <h4 style="font-size: 20px;">  
-        <input type="text" name="Adhar" pattern="[0-9]{1}[0-9]{11}" required="required"><br>
+        <input type="text" name="Aadhar" pattern="[0-9]{1}[0-9]{11}" required="required"><br>
         </h4>
 </h3>
 
 
-<h3 style="padding-top:30px;">Name as on Aadhar card-
+<h3 style="padding-top:30px;">Name as on Aadhar card
 <h4 style="font-size: 20px;">  
   <input type="text" name="Fullname" required="required"><br>
 </h4>
 </h3>
 
 
-<h3 style="padding-top:30px;">Address-
+<h3 style="padding-top:30px;">Address
      
   
 <h4 style="font-size: 20px;">  
       <input type="text" name="Address" required="required"><br>
 </h4>
 </h3>
-<h3 style="padding-top:30px;">Contact Number-
+<h3 style="padding-top:30px;">Contact Number
 
 <h4 style="font-size: 20px;">
   <input type="text" name="Contact" pattern="[1-9]{1}[0-9]{9}" required="required"><br>
 
 </h4>
-    <button type="submit">Submit</button>
+    <input type="submit" name="action" value="Confirm" class="inputButtonsign"/>
 </form>
 </h3>
 
