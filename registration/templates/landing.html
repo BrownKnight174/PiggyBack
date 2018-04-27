@@ -22,7 +22,7 @@
 .carousel-content {
   position: absolute;
   bottom: 10%;
-  left: 5%;
+  left: 50%;
   z-index: 20;
   color: white;
   text-shadow: 0 1px 2px rgba(0,0,0,.6);
@@ -118,8 +118,8 @@
                         <img src='{% static "img/watch.jpg" %}' class="img-responsive">
                         <div class="carousel-content">
                         <h2>Samsung SmartWatch <span class="label label-danger label-xs">New</span></h2>
-                         <h3>US Price: $250 </p>
-						<p>Indian Price: $350</h3>
+                         <h3>US Price: $250 </h3>
+						<h4>Indian Price: $350</h3>
                 		<p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a></p>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                         <img class="img-responsive"
                          src='{% static "img/camera.png" %}' alt="...">
                         <div class="carousel-content">
-						<h2>DSLR Camera</h2>
+						          <h2>DSLR Camera<span class="label label-danger label-xs">New</span></h2>
                          <p>US price: $1000
                          </p>
 							<p>Indian price: $1350</p>
@@ -156,4 +156,5 @@
 
 
 {% endblock %}
+
 
