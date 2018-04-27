@@ -959,6 +959,9 @@ width: 250px;
       .formin1{
         margin-left:20px;
       }
+      .labels{
+      font-family:'Muli';
+    }
       @media screen and (max-width: 600px) {
         .heading{
           padding-top:10px;
