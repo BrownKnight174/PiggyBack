@@ -16,7 +16,11 @@ class ProductPage(TemplateView):
 
             url = request.POST.get("sendURL")
 
-            productData = GetProductData(url)
+            try:
+                productData = GetProductData(url)
+            except:
+                messages.error(request, "Please enter valid URL!")
+                return render(request, "home.html", context={"user": request.user})
 
             if productData is None:
                 messages.error(request, "Please enter valid URL!")
@@ -66,6 +70,7 @@ class CheckoutPage(TemplateView):
         return redirect('HomePage')
 
     def post(self, request, **kwargs):
+
         return redirect('HomePage')
 
 
