@@ -19,8 +19,8 @@ class ProductPage(TemplateView):
             productData = GetProductData(url)
 
             if productData is None:
-                messages.error(request, "")
-                return render(request, 'productDescription.html')
+                messages.error(request, "Please enter valid URL!")
+                return render(request, "home.html", context={"user": request.user})
             else:
                 cleanData = CleanData(productData)
 
@@ -29,7 +29,7 @@ class ProductPage(TemplateView):
 
                 return render(request, 'productDescription.html', context=cleanData)
         else:
-            return redirect('LandingPage')
+            return render(request, "home.html")
 
 
 class PaymentsPage(TemplateView):
@@ -84,15 +84,17 @@ def GetProductData(url):
         print(productTitle)
 
         try:
-            productCost = browser.find_element_by_id('priceblock_ourprice').text
-            print(productCost.strip())
-            if productCost == "":
-                productCost = browser.find_element_by_id('priceblock_usedprice').text
+            try:
+                productCost = browser.find_element_by_id('priceblock_ourprice').text
                 print(productCost.strip())
+                if productCost == "":
+                    productCost = browser.find_element_by_id('priceblock_usedprice').text
+                    print(productCost.strip())
+            except:
+                productCost = browser.find_element_by_id('priceblock_usedprice').text
         except:
             productCost = browser.find_element_by_id('priceblock_dealprice').text
             print(productCost.strip())
-
 
         availability = browser.find_element_by_id('availability').text
         print(availability.strip())
