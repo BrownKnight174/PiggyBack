@@ -78,31 +78,35 @@ def GetProductData(url):
 
     browser.get(url)
 
-    productTitle = browser.find_element_by_id('productTitle').text
-    print(productTitle)
-
     try:
-        productCost = browser.find_element_by_id('priceblock_ourprice').text
-        print(productCost.strip())
-        if productCost == "":
-            productCost = browser.find_element_by_id('priceblock_usedprice').text
+        productTitle = browser.find_element_by_id('productTitle').text
+        print(productTitle)
+
+        try:
+            productCost = browser.find_element_by_id('priceblock_ourprice').text
             print(productCost.strip())
+            if productCost == "":
+                productCost = browser.find_element_by_id('priceblock_usedprice').text
+                print(productCost.strip())
+        except:
+            productCost = browser.find_element_by_id('priceblock_dealprice').text
+            print(productCost.strip())
+
+
+        availability = browser.find_element_by_id('availability').text
+        print(availability.strip())
+
+        descriptionElements = browser.find_elements_by_xpath("//*[@id='feature-bullets']/ul/li/span[@class='a-list-item']")
+        description = []
+        for element in descriptionElements:
+            description.append(element.text)
+
+        browser.quit()
+
+        productData = {'productTitle': productTitle, 'productCost': productCost, 'availability': availability, 'description': description}
+
     except:
-        productCost = browser.find_element_by_id('priceblock_dealprice').text
-        print(productCost.strip())
-
-
-    availability = browser.find_element_by_id('availability').text
-    print(availability.strip())
-
-    descriptionElements = browser.find_elements_by_xpath("//*[@id='feature-bullets']/ul/li/span[@class='a-list-item']")
-    description = []
-    for element in descriptionElements:
-        description.append(element.text)
-
-    browser.quit()
-
-    productData = {'productTitle': productTitle, 'productCost': productCost, 'availability': availability, 'description': description}
+        productData = None
 
     return productData
 
