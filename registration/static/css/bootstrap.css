@@ -915,6 +915,7 @@ th {
 .glyphicon-bishop:before {
   content: "\e214";
 }
+
 .glyphicon-knight:before {
   content: "\e215";
 }
@@ -923,6 +924,9 @@ th {
 }
 .glyphicon-tent:before {
   content: "\26fa";
+}
+.bord {
+  border-right-style:outset; border-right-color: 15px black; padding-top: 20px; border-right-style: double;
 }
 .glyphicon-blackboard:before {
   content: "\e218";
