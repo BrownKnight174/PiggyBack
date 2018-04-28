@@ -16,14 +16,14 @@ class Traveller(models.Model):
     aadhar_name = models.CharField(max_length=30, null=True)
 
     def __str__(self):
-        return "User: " + self.user.username + " | Travelling to: " + self.city_of_travel
+        return str(self.pk) + " User: " + self.user.username + " | Travelling to: " + self.city_of_travel
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        registrationConf(self.user.username)
+        registrationConf(self.user.username, self.user.first_name)
 
 
-def registrationConf(id_to):
+def registrationConf(id_to, first_name):
     id_from = "parcelpanther@gmail.com"
     password = "Snu@1234"
     smtp_server = "smtp.gmail.com"
@@ -31,7 +31,7 @@ def registrationConf(id_to):
     message['Subject'] = "Successfully Registered to PiggyBack"
     message['from'] = id_from
     message['to'] = id_to
-    body = "Hi\nYou have been successfully registered\n"
+    body = "Hi " + first_name + "!\n\nYou have been successfully registered.\n\nWe'll get back to you once we find a product for you to deliver!\n\nHave a nice day!"
     message.attach(MIMEText(body, 'plain'))
     server = smtp.SMTP(smtp_server,587)
     server.starttls()
