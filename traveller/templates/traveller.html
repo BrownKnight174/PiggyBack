@@ -9,6 +9,16 @@
 {% endblock %}
 
 {% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger alert-dismissible" role="alert" id="alertMsg">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
 <div class="container" style="margin:60px;">  </div>
       <div class="container" >
           <h3 class="single-headings"><center><strong>Tell us your travel plans and we will find you the best deals</strong></center></h3>
